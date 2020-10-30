@@ -1,23 +1,49 @@
-import React from 'react';
-import Aux from '../../HOC/Auxiliary';
-import Burger from '../../components/Burger/Burger'; 
+import React from "react";
+import Aux from "../../HOC/Auxiliary";
+import Burger from "../../components/Burger/Burger";
+
+const INGREDIENT_PRICES = {
+  salad: 0.5,
+  cheese: 0.4,
+  meat: 1.3,
+  bacon: 0.6,
+};
+
 class BurgerBuilder extends React.Component {
+  state = {
+    ingredients: {
+      salad: 0,
+      bacon: 0,
+      cheese: 0,
+      meat: 0,
+    },
+    totalPrice: 4,
+  };
 
-    state = {
-        ingredients: {
-            salad:2,
-            bacon:1,
-            cheese: 2,
-            meat:1
-        }
-    }
+  addIngredientHandler = (type) => {
+    const oldIngredient = this.state.ingredients[type];
+    const updatedIngredients = {
+      ...this.state.ingredients,
+    };
+    updatedIngredients[type] = oldIngredient + 1;
+    let totalPrice = this.state.totalPrice;
+    totalPrice += INGREDIENT_PRICES[type];
+    totalPrice = Math.round(totalPrice * 100) / 100;
+    this.setState({ ingredients: updatedIngredients, totalPrice: totalPrice });
+  };
 
-    render() {
-        return (
-            <Aux>
-                <Burger ingredients={this.state.ingredients}/>
-            </Aux>
-        )
-    }
+  removeIngredientHandler = () => {};
+
+  render() {
+    return (
+      <Aux>
+        <Burger
+          ingredients={this.state.ingredients}
+          price={this.state.totalPrice}
+          add={this.addIngredientHandler}
+        />
+      </Aux>
+    );
+  }
 }
 export default BurgerBuilder;
