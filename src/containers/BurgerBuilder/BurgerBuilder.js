@@ -69,6 +69,10 @@ class BurgerBuilder extends React.Component {
     this.setState({ purchasing: true });
   };
 
+  modelClosedHandler = () => {
+    this.setState({ purchasing: false });
+  };
+
   render() {
     // Create Disable Info.
     const disableInfo = {
@@ -79,7 +83,10 @@ class BurgerBuilder extends React.Component {
     }
     return (
       <Aux>
-        <Modal show={this.state.purchasing}>
+        <Modal
+          show={this.state.purchasing}
+          modelClosed={this.modelClosedHandler}
+        >
           <OrderSummary ingredients={this.state.ingredients} />
         </Modal>
         <Burger
