@@ -25,8 +25,14 @@ const Burger = (props) => {
       <BurgerIngredients type="bread-top" />
       {transformIngredients}
       <BurgerIngredients type="bread-bottm" />
-      <h1>{props.price}</h1>
-      <BuildControls add={props.add} remove={props.remove} disableInfo={props.disableInfo}/>
+      <BuildControls
+        ordered={props.ordered}
+        price={props.price}
+        add={props.add}
+        remove={props.remove}
+        disableInfo={props.disableInfo}
+        isPurchaseable={props.isPurchaseable}
+      />
     </div>
   );
 };
