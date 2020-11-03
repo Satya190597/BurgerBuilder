@@ -78,7 +78,7 @@ class BurgerBuilder extends React.Component {
   };
 
   purchaseContinueHandler = () => {
-    alert('Continue Is Working')
+    alert("Continue Is Working");
   };
 
   render() {
@@ -96,6 +96,7 @@ class BurgerBuilder extends React.Component {
           modelClosed={this.modelClosedHandler}
         >
           <OrderSummary
+            totalPrice={this.state.totalPrice}
             purchaseCanceled={this.modelClosedHandler}
             purchaseContinue={this.purchaseContinueHandler}
             ingredients={this.state.ingredients}
