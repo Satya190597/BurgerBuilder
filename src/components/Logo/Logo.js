@@ -3,7 +3,7 @@ import burgerLogo from "../../assets/images/burger-logo.png";
 import styles from './logo.module.css'
 const Logo = () => {
   return (
-    <div >
+    <div className={styles.Logo}>
       <img src={burgerLogo} alt="MyBurger"/>
     </div>
   );

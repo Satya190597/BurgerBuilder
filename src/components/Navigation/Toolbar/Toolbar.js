@@ -7,7 +7,7 @@ const Toolbar = (props) => {
         <header className={styles.Toolbar}>
             <div>MENU</div>
             <Logo/>
-            <div>LOGO</div>
+            <div style={{textAlign:'end'}}>LOGO</div>
             <nav>
 
             </nav>
