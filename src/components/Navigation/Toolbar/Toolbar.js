@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from './toolbar.module.css'
 import Logo from '../../Logo/Logo';
+import NavigationItems from './NavigationItems/NavigationItems';
 
 const Toolbar = (props) => {
     return (
         <header className={styles.Toolbar}>
             <div>MENU</div>
             <Logo/>
-            <div style={{textAlign:'end'}}>LOGO</div>
             <nav>
-
+                <NavigationItems></NavigationItems>
             </nav>
         </header>
     )
